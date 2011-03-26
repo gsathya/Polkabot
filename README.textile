@@ -1,4 +1,4 @@
-h2. Polkabot - IRC bot w/ polkadots :)
+h1. Polkabot - IRC bot w/ polkadots :)
 
 You can find polkabot rant-ing about it's various polka dots on #chennai-hackers on irc.freenode.org
 
