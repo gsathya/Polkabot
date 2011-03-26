@@ -1,5 +1,13 @@
 Polkabot - Introduction 
 ____________________________________________________________________________________
+
 An IRC bot - with polka dots. 
 
 Written using the Cinch framework.
+
+TODO
+-------------------------------------------------------------------------------------
+- Add more plugins
+	- Karma
+	- Translate
+	- HN 
