@@ -3,6 +3,7 @@ require 'cinch'
 require 'youtube'
 require 'seen'
 require 'hello'
+require 'google'
 require 'bye'
 require 'quit'
 require 'help'
@@ -11,7 +12,7 @@ bot = Cinch::Bot.new do
     c.server = "irc.freenode.org"
     c.channels = ["#chennai-hackers"]
     c.nick = "polkabot"
-    c.plugins.plugins = [Youtube,Seen,Hello,Bye,Quit,Help]
+    c.plugins.plugins = [Youtube,Seen,Hello,Bye,Quit,Help,Google]
   end
 end
 
