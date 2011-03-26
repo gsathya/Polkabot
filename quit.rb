@@ -2,9 +2,9 @@ require 'cinch'
 
 class Quit 
   include Cinch::Plugin
-  plugin "Quit"
+  plugin "quit"
   match /polkabot[,:] (quit|leave)$/, use_prefix: false
-  help "polkabot quit - Polkabot quits."
+  help "polkabot, quit - Polkabot quits."
   
   def execute(m)
     if m.user.nick == "gsathya"

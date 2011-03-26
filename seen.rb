@@ -10,8 +10,9 @@ class Seen
   include Cinch::Plugin
   listen_to :channel
   match /seen (.+)/
-  help "!seen <nick> - polkabot tells you the last time <nick> visited /#chennai-hackers"
-
+  help "!seen <nick> - polkabot tells you the last time <nick> visited /#chennai-hackers. Ex- !seen <nick>"
+  plugin "seen"
+  
   def initialize(*args)
     super
     @users = {}

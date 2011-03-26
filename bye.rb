@@ -3,7 +3,7 @@ require 'cinch'
 class Bye
   include Cinch::Plugin
   
-  plugin 'Bye'
+  plugin 'bye'
   match /polkabot[,:] (bye|ciao|night)$/, use_prefix: false
   help "polkabot, bye - Polkabot greets you!"
 

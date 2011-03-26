@@ -7,7 +7,7 @@ class Google
   include Cinch::Plugin
   match /google (.+)/
   help "!google <query> - Googles the <query> and returns a description and link. Ex - !google foo"
-  plugin 'Google'
+  plugin 'google'
 
   def search(query)
     url = "http://www.google.com/search?q=#{CGI.escape(query)}"
