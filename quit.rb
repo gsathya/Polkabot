@@ -4,10 +4,14 @@ class Quit
   include Cinch::Plugin
   plugin "Quit"
   match /polkabot[,:] (quit|leave)$/, use_prefix: false
-  help "!quit <message> - Polkabot quits. Ex - !quit All Hail gsathya"
+  help "!quit - Polkabot quits. Ex - !quit"
   
-  def execute(message)
-    bot.quit;
+  def execute(m)
+    if m.user.nick == "gsathya"
+       bot.quit("All hail gsathya");
+    else
+      m.reply "#{m.user.nick}, ha nice try !"
+    end
   end
   
 end
