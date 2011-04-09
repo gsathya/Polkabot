@@ -30,6 +30,7 @@ class Help
         name = plugin.class.instance_variable_get(:@__cinch_name)
         m.reply "#{help_message}"
       end
+      sleep(0.3)
     end
   end
 end
