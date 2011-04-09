@@ -7,8 +7,8 @@ class Quit
   help "polkabot, quit - Polkabot quits."
   
   def execute(m)
-    if m.user.nick == "gsathya"
-       bot.quit("All hail gsathya");
+    if m.user.nick == "gsathya" or m.user.nick == "idlecool"
+       bot.quit("NULL");
     else
       m.reply "#{m.user.nick}, ha nice try !"
     end
