@@ -19,9 +19,13 @@ class Dict
     jsondoc = open(linkprefix+CGI.escape(query)+linksuffix).read
     jsontext = jsondoc[25, jsondoc.length - 35]
     jsondict = JSON.parse jsontext
-    
-    m.reply("ahh!! #{jsondict["query"]}")
-    disectjson(jsondict["primaries"],m)
+
+    if jsondict.has_key? "primaries"
+      m.reply("ahh!! #{jsondict["query"]}")
+      disectjson(jsondict["primaries"],m)
+    else
+      m.reply("No results found")    
+    end
   rescue
     m.reply("No results found")    
   end
