@@ -8,12 +8,13 @@ require 'bye'
 require 'quit'
 require 'help'
 require 'dict'
+require 'lagcheck'
 bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.freenode.org"
     c.channels = ["#chennai-hackers"]
     c.nick = "polkabot"
-    c.plugins.plugins = [Youtube,Seen,Hello,Bye,Quit,Help,Google,Dict]
+    c.plugins.plugins = [Youtube,Seen,Hello,Bye,Quit,Help,Google,Dict,LagCheck]
   end
 end
 
