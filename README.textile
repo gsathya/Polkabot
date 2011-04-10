@@ -4,4 +4,4 @@ You can find polkabot rant-ing about it's various polka dots on #chennai-hackers
 
 Polkabot was written using "Cinch":https://github.com/cinchrb/cinch framework.
 
-fn1. I mainly wrote this as an excuse to learn about IRC bots and also plunge into Ruby (which is just beautiful, IMHO). Please free to reuse any code, that you find useful.
+fn1. I mainly wrote this as an excuse to learn about IRC bots and also plunge into Ruby (which is just beautiful, IMHO). Please check the LICENSE if you want to reuse any part of the code. 
