@@ -5,7 +5,7 @@ class LagCheck
   plugin "lagcheck"
   help "ping - polkabot pongs you"
   
-  match /(ping|PING|Ping)$/, use_prefix: false
+  match /^(ping|PING|Ping)$/, use_prefix: false
 
 
   def execute(m)

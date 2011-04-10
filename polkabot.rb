@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 $:.unshift(Dir.pwd)
 require 'cinch'
 require 'youtube'
