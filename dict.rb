@@ -11,29 +11,41 @@ class Dict
   match /dict (.+)/
   
   def dict(m, query)
-     
-    linkprefix = 'http://www.google.com/dictionary/json?callback=dict_api.callbacks.id100&q='
-    linksuffix = '&sl=en&tl=en&restrict=pr%2Cde&client=te'
-
-    m.reply("Searching for \"#{query}\"...")
-    jsondoc = open(linkprefix+CGI.escape(query)+linksuffix).read
+    query = CGI.escape(query)
+    limit = 1 #set the limit
+    output = query + " : "
+    urljson = "http://www.google.com/dictionary/json?callback=dict_api.callbacks.id100&q=#{query}&sl=en&tl=en&restrict=pr%2Cde&client=te"
+    urlhtml = "http://www.google.com/dictionary?langpair=en|en&q=#{query}&hl=en&aq=f"
+    m.reply("Searching for \"#{query}\"")
+    jsondoc = open(urljson).read
     jsontext = jsondoc[25, jsondoc.length - 35]
     jsondict = JSON.parse jsontext
 
+    @meaningslist = []
     if jsondict.has_key? "primaries"
-      m.reply("ahh!! #{jsondict["query"]}")
-      disectjson(jsondict["primaries"],m)
+      disectjson(jsondict["primaries"])
+      num = 0
+      @meaningslist.each do | emean |
+        if num < limit
+          output += emean+" | "
+          num += 1 
+        else
+          break
+        end
+      end
+      output += "more results: "+urlhtml
+      m.reply(output)
     else
       m.reply("No results found")    
     end
-  rescue
-    m.reply("No results found")    
+  #rescue
+  #  m.reply("No results found")    
   end
 
-  def disectjson(query,m)
+  def disectjson(query)
     if query.kind_of? Array
     query.each do | node |
-        disectjson(node,m)
+        disectjson(node)
       end
     elsif query.kind_of? Hash
       query.each_key do | element |
@@ -44,8 +56,7 @@ class Dict
                 if entries.kind_of? Hash
                   if entries.has_key? "text" and entries.has_key? "type"
                     if entries["type"] == "text"
-                      m.reply(entries["text"])
-                      sleep(0.3)
+                      @meaningslist.push(entries["text"])
                     end
                   end
                 end
@@ -53,7 +64,7 @@ class Dict
             end
           end
         elsif query[element].kind_of? Array or query[element].kind_of? Hash
-          disectjson(query[element], m)
+          disectjson(query[element])
         end
       end
     end
