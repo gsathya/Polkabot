@@ -1,7 +1,0 @@
-h1. Polkabot - IRC bot w/ polkadots :)
-
-You can find polkabot rant-ing about it's various polka dots on #chennai-hackers on irc.freenode.org
-
-Polkabot was written using "Cinch":https://github.com/cinchrb/cinch framework.
-
-fn1. I mainly wrote this as an excuse to learn about IRC bots and also plunge into Ruby (which is just beautiful, IMHO). Please check the LICENSE if you want to reuse any part of the code. 
